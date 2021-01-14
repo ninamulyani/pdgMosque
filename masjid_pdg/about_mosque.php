@@ -145,7 +145,14 @@
                                     <br>
                                     <br>
                                    <p>
-                                   In Padang City, there are currently 664 mosques and 677 prayer rooms spread across eleven sub-districts and registered in the Mosque Information System (SIMAS) issued by the Ministry of Religion of the Republic of Indonesia. Recommendations for mosques in Padang City are divided into tourist mosques, grand mosques, historical mosques, and recommended mosques located around tourist attractions in Padang City.</p>
+                                   In Padang City, there are currently 664 mosques and 677 prayer rooms spread across eleven sub-districts and registered in the Mosque Information System (SIMAS) issued by the Ministry of Religion of the Republic of Indonesia. Recommendations for mosques in Padang City are divided into tourist mosques, grand mosques, historical mosques, and recommended mosques located around tourist attractions in Padang City. One of the recommended tourist mosques in the city of Padang is the Grand Mosque of West Sumatra. Some of the features of the Grand Mosque of West Sumatra, namely: 
+                                     <ul> 
+                                        <li>Mosque Without Dome</li>
+                                        <li>Known as the icon of "Masjid Mahligai Minang" in Padang</li>
+                                        <li>Called the Thousand Doors Wind Mosque</li>
+                                        <li>Religious Tourism Destinations</li>
+                                     </ul>
+                                   </p>
                                    </p> 
                               <?php
                                    } elseif ($id_c == 'CT02') {

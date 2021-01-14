@@ -3811,7 +3811,8 @@ function tampilkatwilayah(){ //fungsi cari berdasarkan wilayah dan kategori
                     $('#hasilcari').append("<tr><td>"+worship_name+"</td><td><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white;' onclick='detailmasjid(\""+idmes+"\");info1();'></a></td><td>"+restaurant_name+"</td><td>"+jarak+" m"+"</td></tr>");
                   }
           }});
-        } klikInfoWindow(idmes);
+        } 
+        //klikInfoWindow(idmes);
       }
 
       //menampilkan checkbox tipe hotel

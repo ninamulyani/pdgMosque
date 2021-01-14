@@ -327,12 +327,12 @@
                   </li>
 
                   <!-- Menu daftar tempat ibadah -->
-                  <!-- <li class="sub-menu">
+                  <li class="sub-menu">
                     <a href="javascript:;" onclick="listAngkot(); resultt();">
                     <i class="fa fa-list"></i>
                           <span>List Angkot</span>
                     </a>
-                  </li> -->
+                  </li>
 
                   <!-- Menu daftar tempat ibadah -->
                   <li class="sub-menu">
