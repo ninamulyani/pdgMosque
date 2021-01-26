@@ -2721,13 +2721,12 @@ function detaileventbulan(id, id_event){  //menampilkan Information event rekome
     $.ajax({ 
       url: server+'detaileventbulanan.php?cari='+id+'&opsi='+event_bulan2+'&id_event='+id_event, data: "", dataType: 'json', success: function(rows)
         { 
-
-          console.log(id_event);
-         for (var i in rows)
+        console.log(id_event);
+        for (var i in rows)
           {
             console.log('dd');
             var row = rows[i];
-            var name_worship_name = row.worship_place_name;
+            var name_worship = row.worship_place_name;
             var nama_keg =row.event_name;
             var nama_ustad =row.ustad_name;
             var tgl_keg =row.date;
@@ -2744,16 +2743,17 @@ function detaileventbulan(id, id_event){  //menampilkan Information event rekome
               map: map,
               animation: google.maps.Animation.DROP,
             });
-              console.log(latitude);
-              console.log(longitude);
-              markersDua.push(marker);
+            console.log(latitude);
+            console.log(longitude);
+            markersDua.push(marker);
             map.setCenter(centerBaru); 
             map.setZoom(18);
             
-            $('#infoevent').append("<tr><td><b>Mosque</b></td><td>:</td><td> "+name_worship_name+"</td></tr><tr><td><b> Event </b></td><td>:</td><td> "+nama_keg+"</td></tr><tr><td><b>Date</b></td><td>:</td><td>"+tgl_keg+"</td></tr><tr><td><b>Time</b></td><td>:</td><td> "+time+"</td></tr><tr><td><b>Ustad</b></td><td>:</td><td> "+nama_ustad+"</td></tr><tr><td><b>Content</b></td><td>:</td><td> "+materi+"</td></tr>")
+            $('#infoevent').append("<tr><td><b>Mosque</b></td><td>:</td><td> "+name_worship+"</td></tr><tr><td><b> Event </b></td><td>:</td><td> "+nama_keg+"</td></tr><tr><td><b>Date</b></td><td>:</td><td>"+tgl_keg+"</td></tr><tr><td><b>Time</b></td><td>:</td><td> "+time+"</td></tr><tr><td><b>Ustad</b></td><td>:</td><td> "+nama_ustad+"</td></tr><tr><td><b>Content</b></td><td>:</td><td> "+materi+"</td></tr>")
             infowindow = new google.maps.InfoWindow({
             position: centerBaru,
-            content: "<span style=color:black><center><b>Information</b><br><img src='"+fotosrc+image+"' alt='image in infowindow' width='150'></center><br><i class='fa fa-home'></i> "+name_worship_name+"<br><i class='fa fa-map-marker'></i> "+nama_keg+"<br></span>",
+            content: "<span style=color:black><center><b>Information</b><br><img src='"+fotosrc+image+"' alt='image in infowindow' width='150'></center><br><i class='fa fa-home'></i> "+name_worship+"<br><i class='fa fa-map-marker'></i> "+nama_keg+"<br><center><a role='button' title='tracking' class='btn btn-default fa fa-car' style='color: white;' value='Route' onclick='callRoute(centerLokasi, centerBaru);rutetampil();resetangkot();'></a>&nbsp&nbsp<a class='btn btn-default fa fa-info' style='color: white;' background-color: #48bcb4; role=button' onclick='galeri(\""+id+"\");hapusRadius();' title='Info' aria-controls='Info' id='btn_gallery'></a>&nbsp&nbsp<a role='button' title='Nearby' aria-controls='Nearby' class='btn btn-default fa fa-compass' style='color: white;' onclick='tampil_sekitar(\""+latitude+"\",\""+longitude+"\",\""+name_worship+"\");infonearby();'></a></center></span>",
+
             pixelOffset: new google.maps.Size(0, -33)
             });
           infoDua.push(infowindow);

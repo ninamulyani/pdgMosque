@@ -42,13 +42,14 @@
                   ('POINT(
                     ',ST_Y(ST_CENTROID(culinary_place.geom)),' 
                     ',ST_X(ST_Centroid(culinary_place.geom)),')'), 4326)),2) as jarak 
-    from worship_place,detail_worship_place, angkot, detail_culinary_place, culinary_place, detail_culinary, culinary, city where 
+    from worship_place,detail_worship_place, angkot, detail_culinary_place, culinary_place, culinary_category, city where 
     worship_place.id = detail_worship_place.id_worship_place and
     detail_worship_place.id_angkot = angkot.id and
     angkot.id = detail_culinary_place.id_angkot and
-    detail_culinary_place.id_culinary_place = culinary_place.id 
-    and city.id='$city' AND st_contains(city.geom, worship_place.geom) and st_contains(city.geom, culinary_place.geom)
-    and culinary.id in ($c) order by jarak ASC limit 40";
+    detail_culinary_place.id_culinary_place = culinary_place.id and
+    culinary_place.id_category=culinary_category.id and 
+    city.id='$city' and st_contains(city.geom, worship_place.geom) and st_contains(city.geom, culinary_place.geom)
+    and culinary_category.id in ($c) order by jarak ASC limit 25";
         //echo '<script>'console.log($querysearch)'</script>';
         $hasil=mysqli_query($conn, $querysearch);
         while($row = mysqli_fetch_array($hasil))
@@ -67,6 +68,6 @@
                   'longitude'=>$longitude,
                   'latitude'=>$latitude
               );
-		}
+	        }
 	echo json_encode ($dataarray);
 ?>
