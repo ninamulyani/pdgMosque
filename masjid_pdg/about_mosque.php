@@ -146,12 +146,6 @@
                                     <br>
                                    <p>
                                    In Padang City, there are currently 664 mosques and 677 prayer rooms spread across eleven sub-districts and registered in the Mosque Information System (SIMAS) issued by the Ministry of Religion of the Republic of Indonesia. Recommendations for mosques in Padang City are divided into tourist mosques, grand mosques, historical mosques, and recommended mosques located around tourist attractions in Padang City. One of the recommended tourist mosques in the city of Padang is the Grand Mosque of West Sumatra. Some of the features of the Grand Mosque of West Sumatra, namely: 
-                                     <ul> 
-                                        <li>Mosque Without Dome</li>
-                                        <li>Known as the icon of "Masjid Mahligai Minang" in Padang</li>
-                                        <li>Called the Thousand Doors Wind Mosque</li>
-                                        <li>Religious Tourism Destinations</li>
-                                     </ul>
                                    </p>
                                    </p> 
                               <?php
@@ -172,8 +166,8 @@
                                <?php 
                                    if ($id_c == 'CT01') {
                                ?>
-                                    <img src="assets/img/masjid raya sumbar.jpeg" style="max-width: 350px; align: center;" class="responsive"><br>
-                                      <caption >Mosque in Padang City</caption> <br>
+                                    <img src="assets/img/Masjid raya ganting.JPG" style="max-width: 350px; align: center;" class="responsive"><br>
+                                      <caption >Historical Mosque, <b>Masjid Raya Ganting</b> in Padang City</caption> <br>
                                         <?php
                                             } elseif ($id_c == 'CT02') {
                                         ?>
@@ -318,7 +312,7 @@
                                         });//end ajax 
                                     }
                                     </script>
-                               </div> <br> <br>
+                               </div> 
                                <div class="form-group">
                                 <h4 style="color: #26a69a; font-family: arial; font-size: 20px"><b>Top Recommendation of <?php echo $city;?> Mosque</b></h4>
                                  <?php 
@@ -329,7 +323,7 @@
                                     One of the mosques that has become an icon for the city of Padang is the <b>Grand Mosque of West Sumatra</b>, which is the largest mosque in West Sumatra which is located on Jalan Khatib Sulaiman, North Padang District, Padang City. This mosque was completed on January 4, 2019 with a capacity of around 5,000–6,000 worshipers.
                                  </p> <br>
                                  <img src="assets/img/masjid raya sumbar.jpeg" style="max-width: 350px; align: center;" class="responsive"><br>
-                                      <caption >Mosque in Padang City</caption> <br>
+                                      <caption >Grand Mosque of West Sumatra</caption> <br>
                                  <?php
                                      } elseif ($id_c == 'CT02') {
                                  ?>

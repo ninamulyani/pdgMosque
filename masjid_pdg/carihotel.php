@@ -3,7 +3,7 @@
 	include('connect.php');
     $latit = $_GET['lat'];
     $longi = $_GET['lng'];
-		$rad   = $_GET['rad'];
+		$rad   = $_GET['rad']/1000;
 
 		$lt   = array();
     $lati = array();
@@ -21,12 +21,25 @@
     // from hotel where st_distance_sphere(ST_GeomFromText('POINT($latit $longi)', 4326), 
     // ST_GeomFromText(concat('POINT(',ST_Y(ST_CENTROID(geom)),' ',ST_X(ST_Centroid(geom)),')'), 4326)) <=$rad";
 
-    $querysearch="SELECT id, name, address, cp, ktp, marriage_book, mushalla, id_type, ST_X(ST_Centroid(geom)) AS lng, ST_Y(ST_CENTROID(geom)) As lat, 
-    st_distance_sphere(ST_GeomFromText('POINT($latit $longi)', 4326), 
-    ST_GeomFromText(concat('POINT(',ST_Y(ST_CENTROID(geom)),' ',ST_X(ST_Centroid(geom)),')'), 4326)) as jarak 
-    from hotel where st_distance_sphere(ST_GeomFromText('POINT($latit $longi)', 4326), 
-    ST_GeomFromText(concat('POINT(',ST_Y(ST_CENTROID(geom)),' ',ST_X(ST_Centroid(geom)),')'), 4326)) <=$rad";
+    // query sebelum cos sin
+    // $querysearch="SELECT id, name, address, cp, ktp, marriage_book, mushalla, id_type, ST_X(ST_Centroid(geom)) AS lng, ST_Y(ST_CENTROID(geom)) As lat, 
+    // st_distance_sphere(ST_GeomFromText('POINT($latit $longi)', 4326), 
+    // ST_GeomFromText(concat('POINT(',ST_Y(ST_CENTROID(geom)),' ',ST_X(ST_Centroid(geom)),')'), 4326)) as jarak 
+    // from hotel where st_distance_sphere(ST_GeomFromText('POINT($latit $longi)', 4326), 
+    // ST_GeomFromText(concat('POINT(',ST_Y(ST_CENTROID(geom)),' ',ST_X(ST_Centroid(geom)),')'), 4326)) <=$rad";
     
+    $querysearch = "SELECT
+    id, (
+    6371 * acos (
+        cos ( radians('$latit') )
+        * cos( radians( ST_Y(ST_CENTROID(geom)) ) )
+        * cos( radians( ST_X(ST_CENTROID(geom)) ) - radians('$longi') )
+        + sin ( radians('$latit') )
+        * sin( radians( ST_Y(ST_CENTROID(geom)) ) )
+    )
+    ) AS jarak, name, address, cp, ktp, marriage_book, mushalla, id_type, ST_X(ST_Centroid(geom)) AS lng, ST_Y(ST_CENTROID(geom)) As lat
+    FROM hotel
+    HAVING jarak <= $rad";
 
     $hasil=mysqli_query($conn, $querysearch);
     while($row = mysqli_fetch_array($hasil))

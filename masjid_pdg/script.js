@@ -2898,7 +2898,7 @@ function aktifkanRadiusSekitar(){
             restaurantsekitar(rad_lat,rad_lng,rad);
       }
       if (document.getElementById('check_k').checked) {
-        kulinersekitar(rad_lat,rad_lng,rad);
+            kulinersekitar(rad_lat,rad_lng,rad);
       }
         }
 

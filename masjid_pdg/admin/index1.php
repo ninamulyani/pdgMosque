@@ -43,7 +43,8 @@
 	    <script src="mapedit.js" type="text/javascript"></script>
 	    <link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
       <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANIx4N48kL_YEfp-fVeWmJ_3MSItIP8eI&sensor=true&libraries=drawing&callback="  async defer></script> -->
-      <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyBNnzxae2AewMUN0Tt_fC3gN38goeLVdVE&sensor=true"></script>
+      <!-- <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyBNnzxae2AewMUN0Tt_fC3gN38goeLVdVE&sensor=true"></script> -->
+      <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDgpfxdQ0Ep_nieNjV64u4yXWeSFHAT4BE&libraries=drawing"></script>
       <script src="../assets/js/chart-master/Chart.js"></script>
       <link rel="stylesheet" type="text/css" href="../assets/js/bootstrap-fileupload/bootstrap-fileupload.css" />
       <link rel="stylesheet" type="text/css" href="../assets/js/bootstrap-datepicker/css/datepicker.css" />
