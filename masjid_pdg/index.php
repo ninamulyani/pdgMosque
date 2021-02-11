@@ -299,7 +299,7 @@
         <aside>
           <div id="sidebar"  class="nav-collapse ">
             <ul class="sidebar-menu" id="nav-accordion">
-              <p class="centered"><a href="#"><img src="assets/img/logo_sidebar.jpeg" style="border-radius:50%" class="img-circle" width="80"></a></p>
+              <p class="centered"><a href="#"><img src="assets/img/logo_wh.jpg" style="border-radius:50%" class="img-circle" width="85"></a></p>
               <h5 class="centered">Hello, <?php 
               if ($_SESSION['A'] == true||$_SESSION['P'] == true) {
                 echo $_SESSION['username']; 

@@ -4,7 +4,7 @@ require 'act/viewdatamas.php';
   ?>
 <ul class="sidebar-menu" id="nav-accordion">
               
-    <p class="centered"><a href="profile.html"><img src="../assets/img/logo_sidebar.jpeg" style="border-radius:50%"class="img-circle" width="80"></a></p>
+    <p class="centered"><a href="profile.html"><img src="../assets/img/logo_wh.jpg" style="border-radius:50%"class="img-circle" width="85"></a></p>
         <h5 class="centered"><p>Hello, <?php echo $_SESSION['username']; ?> !</p></h5>
                     
 				<li class="mt">
