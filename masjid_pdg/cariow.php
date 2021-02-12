@@ -3,21 +3,24 @@
 	include('connect.php');
     $latit = $_GET['lat'];
     $longi = $_GET['lng'];
-    $rad=$_GET['rad']/1000;
+    $rad=$_GET['rad']/100;
     
 	$dataarray=[];
-    $querysearch = "SELECT
-    id, (
-    6371 * acos (
-        cos ( radians('$latit') )
-        * cos( radians( ST_Y(ST_CENTROID(geom)) ) )
-        * cos( radians( ST_X(ST_CENTROID(geom)) ) - radians('$longi') )
-        + sin ( radians('$latit') )
-        * sin( radians( ST_Y(ST_CENTROID(geom)) ) )
-    )
-    ) AS jarak, name, address, open, close, ticket, id_type, ST_X(ST_Centroid(geom)) AS lng, ST_Y(ST_CENTROID(geom)) As lat
-    FROM tourism
-    HAVING jarak <= $rad";
+    $querysearch = "SELECT id,name, address, open, close, ticket, id_type, ST_X(ST_Centroid(geom)) AS lng, ST_Y(ST_CENTROID(geom)) As lat FROM tourism WHERE
+    ST_Intersects(ST_Centroid(tourism.geom),ST_buffer(ST_GeomFromText(concat('POINT($longi $latit)')), 0.0009*$rad))=1";
+
+    // $querysearch = "SELECT
+    // id, (
+    // 6371 * acos (
+    //     cos ( radians('$latit') )
+    //     * cos( radians( ST_Y(ST_CENTROID(geom)) ) )
+    //     * cos( radians( ST_X(ST_CENTROID(geom)) ) - radians('$longi') )
+    //     + sin ( radians('$latit') )
+    //     * sin( radians( ST_Y(ST_CENTROID(geom)) ) )
+    // )
+    // ) AS jarak, name, address, open, close, ticket, id_type, ST_X(ST_Centroid(geom)) AS lng, ST_Y(ST_CENTROID(geom)) As lat
+    // FROM tourism
+    // HAVING jarak <= $rad";
 
     // 	$querysearch="SELECT id, name, address, open, close, ticket, id_type, ST_X(ST_Centroid(geom)) AS lng, ST_Y(ST_CENTROID(geom)) As lat,  
     //     st_distance_sphere(ST_GeomFromText('POINT($latit $longi)', 4326),  
