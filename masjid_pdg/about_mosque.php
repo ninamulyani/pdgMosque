@@ -288,7 +288,7 @@
                                     {
                                         $('#unix').empty();
                                         var id_rekom = document.getElementById("type_worship").value;
-                                        var pages = "http://localhost/pdgMosque/masjid_pdg/";
+                                        var pages = "https://halaltourismsumbar.com/masjid_pdg/";
                                         $.ajax({url: pages+'worship_typerec_about.php?id_type='+id_rekom, data: "", dataType: 'json', success: function(rows)
                                         {
                                             

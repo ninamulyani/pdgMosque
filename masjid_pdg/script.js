@@ -1597,6 +1597,48 @@ function detailangkot(id_angkot, lat, lng, lat1, lng1){
   });
 }
 
+function detailangkot_rute(id_angkot){
+
+  clearangkot();
+  hapusRadius();
+  console.log("D");
+  $.ajax({
+    url: server+'tampilrute.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){
+      console.log("Dii");
+      for (var i in rows.features){
+        console.log("Diii");
+        var id_angkot=rows.features[i].properties.id;
+        var route_color=rows.features[i].properties.route_color;
+        var latitude=rows.features[i].properties.lat;
+        var longitude=rows.features[i].properties.lng;
+        var jalur_angkot=rows.features[i].properties.track;
+        var jurusan=rows.features[i].properties.destination;
+
+        console.log(id_angkot);
+        console.log(latitude,longitude);
+        tampilrute(id_angkot, route_color);
+        var centerBaru = new google.maps.LatLng(latitude, longitude);
+        map.setCenter(centerBaru);
+                // var marker = new google.maps.Marker({
+                //   position: centerBaru,
+                //   animation: google.maps.Animation.DROP,
+                //   // icon:'assets/ico/marker_angkot.png',
+                //   map: map
+                // });
+        var infowindow = new google.maps.InfoWindow({
+            position: centerBaru,
+            content: "<b><u>Information</u></b><br>Route Code: "+id_angkot+"<br>Destination: "+jurusan+"<br>Track: "+jalur_angkot+"",
+        });
+        infowindow.open(map);
+        infoDua.push(infowindow);
+        infowindow.open(map);
+        //route_sekitar(lat,lng,lat1,lng1);
+      }
+      jalurAngkot.push(ja);
+    }
+  });
+}
+
 function listgeom(id_angkot){
         hapusInfo();
         $.ajax({
@@ -4053,13 +4095,11 @@ function tampilkatwilayah(){ //fungsi cari berdasarkan wilayah dan kategori
 
    var jur=jurusan.value;
     console.log("hahahhaha");
-    detailangkot(jur);
     masjid_sekitar_angkot(jur);
+    //detailangkot(jur);
+    detailangkot_rute(jur);
+    
   }
-
-  // function galeriangkot(){
-
-  // }
 
   /* Menampilkan Masjid disepanjang rute Angkot */
   function masjid_sekitar_angkot(id_angkot,lat,lng){ // MASJID SEKITAR ANGKOT
@@ -4069,8 +4109,11 @@ function tampilkatwilayah(){ //fungsi cari berdasarkan wilayah dan kategori
     console.log('haha');
 
     $.ajax(
-      {url: server+'masjidsekitarjalur.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
-        
+      {url: server+'masjidsekitarjalur.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){
+      if(rows == null)
+        {
+          alert('Data Did Not Exist !');
+        } 
       for (var i in rows){ 
           var row = rows[i];
           var id = row.id;
@@ -4503,7 +4546,7 @@ function cekRadius(){
           }
 
 function cekRadiusangkot(){
-          rad = inputradiusangkot.value*100*5;
+          rad = inputradiusangkot.value*100*1.5;
           console.log(rad);
           }
 

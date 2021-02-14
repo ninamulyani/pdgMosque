@@ -497,7 +497,7 @@
                                   <span>Nearby</span>
                                 </a>
                                   <label style="color:white" id="km2"><b>0</b></label>&nbsp<label style="color:white"><b>m</b></label><br>
-                                    <input  type="range" onclick="cek2(); aktifkanRadiusAngkot();resultt();" id="inputradiusangkot" name="inputradiusangkot" data-highlight="true" min="1" max="20" value="1">
+                                    <input  type="range" onclick="cek2(); aktifkanRadiusAngkot();resultt();" id="inputradiusangkot" name="inputradiusangkot" data-highlight="true" min="1" max="30" value="1">
                               </li>
                             </ul>
                         </li>
