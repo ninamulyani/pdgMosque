@@ -1,7 +1,5 @@
 <?php
-
 	header('Access-Control-Allow-Origin: *');
-
 	require 'connect.php';
 
 	$querysearch = "SELECT St_AsGeoJSON(geom) AS geom ,id, name,  ST_X(ST_Centroid(geom)) AS lng, ST_Y(ST_CENTROID(geom)) AS lat FROM city ORDER BY id ASC";

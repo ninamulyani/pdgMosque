@@ -209,7 +209,7 @@
                     angkot.id=detail_worship_place.id_angkot and
                     detail_hotel.id_angkot=angkot.id and
                     detail_hotel.id_hotel=hotel.id 
-                    and city.id='$city' AND st_contains(city.geom, worship_place.geom) and st_contains(city.geom, hotel.geom) order by jarak ASC limit 2";
+                    and city.id='$city' AND st_contains(city.geom, worship_place.geom) and st_contains(city.geom, hotel.geom) order by jarak ASC limit 20";
             $hasil=mysqli_query($conn, $querysearch);
             while($row = mysqli_fetch_assoc($hasil))
               {

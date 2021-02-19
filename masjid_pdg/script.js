@@ -507,7 +507,7 @@ function angkotradius()
               var longitude   = row.longitude ;
               console.log(jurusan);
               centerBaru      = new google.maps.LatLng(latitude, longitude);
-             $('#hasilcari').append("<tr><td>"+id_angkot+"</td><td>"+jurusan+"</td><td><a role='button' title='Show List' class='btn btn-success fa fa-info' style='color: white;' onclick=' masjid_sekitar_angkot(\""+id_angkot+"\")'></a></td><td><a role='button' title='Show Route'class='btn btn-danger fa fa-car' style='color: white;' onclick='detailangkot(\""+id_angkot+"\")'></a></td></tr>");
+             $('#hasilcari').append("<tr><td>"+id_angkot+"</td><td>"+jurusan+"</td><td><a role='button' title='Show List' class='btn btn-success fa fa-info' style='color: white;' onclick=' masjid_sekitar_angkot(\""+id_angkot+"\"); detailangkot_rute(\""+id_angkot+"\");'></a></td><td><a role='button' title='Show Route'class='btn btn-danger fa fa-car' style='color: white;' onclick='detailangkot(\""+id_angkot+"\")'></a></td></tr>");
               }
             }
           });
@@ -1556,7 +1556,6 @@ function angkotwisata(id_angkot, lat1, lng1){
 }
 
 function detailangkot(id_angkot, lat, lng, lat1, lng1){
-
   clearangkot();
   hapusRadius();
   console.log("D");
@@ -1571,7 +1570,6 @@ function detailangkot(id_angkot, lat, lng, lat1, lng1){
         var longitude=rows.features[i].properties.lng;
         var jalur_angkot=rows.features[i].properties.track;
         var jurusan=rows.features[i].properties.destination;
-
         console.log(id_angkot);
         console.log(latitude,longitude);
         tampilrute(id_angkot, route_color);
@@ -4546,7 +4544,8 @@ function cekRadius(){
           }
 
 function cekRadiusangkot(){
-          rad = inputradiusangkot.value*100*1.5;
+          // rad = inputradiusangkot.value*100*1.5;
+          rad = inputradiusangkot.value*100*2.5;
           console.log(rad);
           }
 

@@ -47,7 +47,7 @@
     <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datetimepicker/datertimepicker.html" />
     <link rel="stylesheet" href="assets/css/bootstrap-slider.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="assets/css/slider.css">
-    <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyDgpfxdQ0Ep_nieNjV64u4yXWeSFHAT4BE&sensor=true"></script>  
+    <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyDgclrR8QqACLDYcgLjsLd1RIZV9-V8Bpc&sensor=true"></script>  
     <!-- <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyBNnzxae2AewMUN0Tt_fC3gN38goeLVdVE&sensor=true"></script> -->
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG7QtGzBlDm1-XtBXWLUtS7h4uoHUBxeg"></script> -->
     <script src="assets/js/chart-master/Chart.js"></script>
@@ -298,8 +298,9 @@
       </header>
         <aside>
           <div id="sidebar"  class="nav-collapse ">
-            <ul class="sidebar-menu" id="nav-accordion">
-              <p class="centered"><a href="#"><img src="assets/img/logo_wh.jpg" style="border-radius:50%" class="img-circle" width="85"></a></p>
+            <ul class="sidebar-menu" id="nav-accordion"> 
+              <!-- <p class="centered"><a href="#"><img src="assets/img/logo_wh.jpg" style="border-radius:50%" class="img-circle" width="85"></a></p> -->
+              <p class="centered"><a href="#"><img src="assets/img/logo_sidebar.jpeg" style="border-radius:50%" class="img-circle" width="85"></a></p>
               <h5 class="centered">Hello, <?php 
               if ($_SESSION['A'] == true||$_SESSION['P'] == true) {
                 echo $_SESSION['username']; 
