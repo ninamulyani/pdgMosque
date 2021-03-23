@@ -47,7 +47,9 @@
     <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datetimepicker/datertimepicker.html" />
     <link rel="stylesheet" href="assets/css/bootstrap-slider.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="assets/css/slider.css">
-    <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyDgclrR8QqACLDYcgLjsLd1RIZV9-V8Bpc&sensor=true"></script>  
+
+    <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyB8B04MTIk7abJDVESr6SUF6f3Hgt1DPAY"></script>  
+    
     <!-- <script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyBNnzxae2AewMUN0Tt_fC3gN38goeLVdVE&sensor=true"></script> -->
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG7QtGzBlDm1-XtBXWLUtS7h4uoHUBxeg"></script> -->
     <script src="assets/js/chart-master/Chart.js"></script>
@@ -445,6 +447,35 @@
                               </li>
                           </ul>
                         </li>
+
+                        <!-- Search by preacher/ khatib -->
+                        <li class="sub-menu">
+                          <a href="javascript:;" onclick="reset()">
+                              <i class="fa fa-user"></i>
+                              <span>Preacher</span>
+                          </a>
+                            <ul class="sub">
+                              <div  class="panel-body" >
+                                <select class="form-control" id="idkhatib" >
+                                  <?php
+                                      session_start();
+                                      $city = $_SESSION['id'];
+                                      include("connect.php");
+
+                                      $khatib = mysqli_query($conn,"select distinct ustad.id as ustad_id, ustad.name as ustad_name from ustad join detail_event on ustad.id=detail_event.id_ustad
+                                      join event on detail_event.id_event = event.id 
+                                      join worship_place on detail_event.id_worship_place = worship_place.id, city where city.id ='$city' and st_contains(city.geom, worship_place.geom) and detail_event.id_event in (3, 8, 16) order by ustad.name ASC");
+                                      while($rowkhatib = mysqli_fetch_array($khatib))
+                                        {
+                                        echo"<option value=".$rowkhatib['ustad_id'].">".$rowkhatib['ustad_name']."</option>";
+                                        }
+                                  ?>
+                                </select>
+                                <br>
+                                <button type="submit" class="btn btn-default" id="cari_khatib"  value="cari" onclick='cariustad()'><i class="fa fa-search" style='color: white;'></i></button>
+                              </div>
+                            </ul>
+                        </li>
                       
                         <!-- Search by transportation -->
                         <li class="sub-menu">
@@ -490,7 +521,6 @@
                                       ?>
                                     </select>
                                     <br>
-
                                     <button type="submit" class="btn btn-default" id="carikategori"  value="cari" onclick="hapusMarkerTerdekat(); tampiljurusan();"><i class="fa fa-search" style='color: white;'></i></button>
                               </li>                 
                               <li class="sub-menu">

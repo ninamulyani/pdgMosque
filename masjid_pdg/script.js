@@ -315,7 +315,7 @@ function digitCity() // PENAMPILAN PEMBAGIAN KECAMATAN DI PADANG WEB
             fillColor:'#FF0000',
             strokeWeight:0.5,
             strokeColor:'#ffffff',
-            fillOpacity: 0.5,
+            fillOpacity: 0.3,
             clickable: false
           });
         }
@@ -912,7 +912,7 @@ function carikategori()
     $.ajax({
         url: server+'carikat.php?id_kategori='+kat, data: "", dataType: 'json', success: function(rows)
           {
-            console.log("hai riri");
+            console.log(server+'carikat.php?id_kategori='+kat);
             if(rows==null)
             {
               alert('Worship Place Not Found');
@@ -947,7 +947,6 @@ function carikategori()
 
   function pilihkendaraan() //fungsi cari mesjid berdasarkan kendaraaan yang digunakan
   {
-
     $('#hasilcari1').show();
     $('#hasilcari').empty();
       hapusInfo();
@@ -2737,7 +2736,7 @@ function detailevent(id1, id2, id3){  //menampilkan Information event
             $('#infoevent').append("<tr><td><b>Mosque</b></td><td>:</td><td> "+nama+"</td></tr><tr><td><b> Event </b></td><td>:</td><td> "+nama_keg+"</td></tr><tr><td><b>Date</b></td><td>:</td><td>"+tgl_keg+"</td></tr><tr><td><b>Time</b></td><td>:</td><td> "+jam+"</td></tr><tr><td><b>Ustad</b></td><td>:</td><td> "+nama_ustad+"</td></tr><tr><td><b>Content</b></td><td>:</td><td> "+materi+"</td></tr>")
             infowindow = new google.maps.InfoWindow({
             position: centerBaru,
-            content: "<span style=color:black><center><b>Information</b><br><img src='"+fotosrc+image+"' alt='image in infowindow' width='150'></center><br><i class='fa fa-home'></i> "+nama+"<br><i class='fa fa-map-marker'></i> "+nama_keg+"<br></span>",
+            content: "<span style=color:black><center><b>Information</b><br><img src='"+fotosrc+image+"' alt='image in infowindow' width='150'></center><br><i class='fa fa-map-marker'></i> "+nama+"<br><i class='fa fa-home'></i> "+nama_keg+"<br><center><a role='button' title='tracking' class='btn btn-default fa fa-car' style='color: white;' value='Route' onclick='callRoute(centerLokasi, centerBaru);rutetampil();resetangkot();'></a>&nbsp&nbsp<a class='btn btn-default fa fa-info' style='color: white;' background-color: #48bcb4; role=button' onclick='galeri(\""+id1+"\");hapusRadius();' title='Info' aria-controls='Info' id='btn_gallery'></a>&nbsp&nbsp<a role='button' title='Nearby' aria-controls='Nearby' class='btn btn-default fa fa-compass' style='color: white;' onclick='tampil_sekitar(\""+latitude+"\",\""+longitude+"\",\""+nama+"\");infonearby();'></a></center></span>",
             pixelOffset: new google.maps.Size(0, -33)
             });
           infoDua.push(infowindow);
@@ -2746,6 +2745,59 @@ function detailevent(id1, id2, id3){  //menampilkan Information event
           }
         }
       });
+}
+
+function detailevent_ustad(id1, id2){ 
+  $('#infoevent').empty();
+  hapusInfo();
+  clearroute2();
+  clearroute();
+  hapusMarkerTerdekat();
+  console.log("hay");
+  $.ajax({
+    url: server+'detailevent_ustad.php?id_worship='+id1+'&id_ustad='+id2, data: "", dataType: 'json', success: function(rows)
+      {
+        console.log(server+'detailevent_ustad.php?id_worship='+id1+'&id_ustad='+id2);
+       for (var i in rows)
+        {
+          console.log('dd');
+          var row = rows[i];
+          var id        = row.id_worship_place;
+          var nama      = row.worship_place_name;
+          var nama_keg  =row.event_name;
+          var tgl_keg   =row.date;
+          var nama_ustad=row.ustad_name;
+          var materi    =row.description;
+          var jam       =row.time;
+          var image     = row.image;
+          var latitude  = row.lat;
+          var longitude = row.lng;
+          centerBaru    = new google.maps.LatLng(row.lat, row.lng);
+          marker        = new google.maps.Marker
+          ({
+            position: centerBaru,
+            icon:'assets/ico/marker_masjid.png',
+            map: map,
+            animation: google.maps.Animation.DROP,
+          });
+          console.log(latitude);
+          console.log(longitude);
+          markersDua.push(marker);
+          map.setCenter(centerBaru);
+          map.setZoom(18);
+          
+          $('#infoevent').append("<tr><td><b>Mosque</b></td><td>:</td><td> "+nama+"</td></tr><tr><td> Event</td><td>:</td><td> "+nama_keg+"</td></tr><tr><td> Date</td><td>:</td><td>"+tgl_keg+"</td></tr><tr><td> Time</td><td>:</td><td> "+jam+"</td></tr><tr><td> Ustad</td><td>:</td><td> "+nama_ustad+"</td></tr><tr><td> Content</td><td>:</td><td> "+materi+"</td></tr>")
+          infowindow = new google.maps.InfoWindow({
+          position: centerBaru,
+          content: "<span style=color:black><center><b>Information</b><br><img src='"+fotosrc+image+"' alt='image in infowindow' width='150'></center><br><i class='fa fa-map-marker'></i> "+nama+"<br><i class='fa fa-home'></i> "+nama_keg+"<br><center><a role='button' title='tracking' class='btn btn-default fa fa-car' style='color: white;' value='Route' onclick='callRoute(centerLokasi, centerBaru);rutetampil();resetangkot();'></a>&nbsp&nbsp<a class='btn btn-default fa fa-info' style='color: white;' background-color: #48bcb4; role=button' onclick='galeri(\""+id1+"\");hapusRadius();' title='Info' aria-controls='Info' id='btn_gallery'></a>&nbsp&nbsp<a role='button' title='Nearby' aria-controls='Nearby' class='btn btn-default fa fa-compass' style='color: white;' onclick='tampil_sekitar(\""+latitude+"\",\""+longitude+"\",\""+nama+"\");infonearby();'></a></center></span>",
+          pixelOffset: new google.maps.Size(0, -33)
+          });
+        infoDua.push(infowindow);
+        hapusInfo();
+        infowindow.open(map);
+        }
+      }
+    });
 }
 
 function detaileventbulan(id, id_event){  //menampilkan Information event rekomendasi
@@ -3311,16 +3363,16 @@ function aktifkanRadiusSekitar(){
         }//end for
 
         //FASILITAS HOTEL
-        var isi="<br><b style='margin-left:20px'>Facility</b> <br><ol>";
-        for (var i in rows.fasilitas){ 
-          var row = rows.fasilitas[i];
-          var id = row.id;
-          var name = row.name;
-          console.log(name);
-          isi = isi+"<li>"+name+"</li>";
-        }//end for
-        isi = isi + "</ol>";
-        $('#mg_body').append(isi);
+        // var isi="<br><b style='margin-left:20px'>Facility</b> <br><ol>";
+        // for (var i in rows.fasilitas){ 
+        //   var row = rows.fasilitas[i];
+        //   var id = row.id;
+        //   var name = row.name;
+        //   console.log(name);
+        //   isi = isi+"<li>"+name+"</li>";
+        // }//end for
+        // isi = isi + "</ol>";
+        // $('#mg_body').append(isi);
 
         //KAMAR HOTEL
         // var isi="<b style='margin-left:20px'>Room</b> <br><ol>";
@@ -3440,10 +3492,10 @@ function aktifkanRadiusSekitar(){
           var destination = row.destination;
           var track = row.track;
           var cost = row.cost;
-          var number = row.number;
+          //var number = row.number;
           var color = row.color;
           console.log(destination);
-          document.getElementById('mg_body').innerHTML="<h2>"+destination+"</h2><br><div style='margin-left:20px'>Track: "+track+"<br>Cost: "+cost+"<br>number: "+number+"<br>Color: "+color+"</div>";
+          document.getElementById('mg_body').innerHTML="<h2>"+destination+"</h2><br><div style='margin-left:20px'>Track: "+track+"<br>Cost: "+cost+"<br>Color: "+color+"</div>";
         }//end for
 
         $('#modal_gallery').modal('show'); 
@@ -4076,6 +4128,50 @@ function tampilkatwilayah(){ //fungsi cari berdasarkan wilayah dan kategori
         caritglk(rows);
       }});
     }
+  }
+
+  function cariustad(){ 
+    $('#hasilcari1').show();
+    $('#hasilcari').empty();
+    $('#hasilcari').append("<thead><th class='centered'>Mosque</th><th class='centered'>Event</th><th>Info</th><th>Route</th></thead>");
+    hapusInfo();
+    clearroute2();
+	  clearroute();
+    clearangkot();
+	  hapusRadius();
+    hapusMarkerTerdekat();
+    $.ajax({ 
+      url: server+'carikhatib.php?id_khatib='+idkhatib.value, data: "", dataType: 'json', success: function(rows){
+      if(rows == null)
+        {
+          alert('Data Did Not Exist !');
+        } 
+      console.log(server+'carikhatib.php?id_khatib='+idkhatib.value);
+      for (var i in rows){ 
+          var row = rows[i];
+          var id = row.worship_id;
+          var name = row.worship_name;
+          var id_event = row.event_id;
+          var name_event = row.event_name;
+          var ustad_id = row.ustad_id;
+          var latitude=row.latit;
+          var longitude = row.lon; 
+          //POSISI MAP
+          centerBaru = new google.maps.LatLng(latitude, longitude);
+          map.setCenter(centerBaru);
+          map.setZoom(13);  
+          var marker = new google.maps.Marker({
+            position: centerBaru,              
+            icon:'assets/ico/marker_masjid.png',
+            animation: google.maps.Animation.DROP,
+            map: map
+          });
+          markersDua.push(marker);
+          map.setCenter(centerBaru);
+          $('#hasilcari').append("<tr><td>"+name+"</td><td>"+name_event+"</td><td><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white;' onclick='detailevent_ustad(\""+id+"\", \""+ustad_id+"\");infoev();'></a></td><td><a role='button' class='btn btn-danger fa fa-car' style='color: white;' title='Local Transportation' onclick='angkotmesjid(\""+id+"\",\""+latitude+"\",\""+longitude+"\");info12();'></a></td></tr>");
+          
+        }//end for
+      }});//end ajax  
   }
 
   function tampiljurusan()

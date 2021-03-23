@@ -32,30 +32,30 @@ $cari = $_GET["cari"];	//ID
 	}
 
 	//DATA GALLERY
-    $query_gallery=
-        "SELECT serial_number, gallery_hotel FROM hotel_gallery where id = '".$cari."' ";
+    // $query_gallery=
+    //     "SELECT serial_number, gallery_hotel FROM hotel_gallery where id = '".$cari."' ";
 
-    $hasil2=mysqli_query($conn, $query_gallery);
-    while($baris = mysqli_fetch_array($hasil2))
-    {
-        $serial_number=$baris['serial_number'];
-        $gallery_hotel=$baris['gallery_hotel'];
-        $data_gallery[]=array('serial_number'=>$serial_number,'gallery_hotel'=>$gallery_hotel);
-    }
+    // $hasil2=mysqli_query($conn, $query_gallery);
+    // while($baris = mysqli_fetch_array($hasil2))
+    // {
+    //     $serial_number=$baris['serial_number'];
+    //     $gallery_hotel=$baris['gallery_hotel'];
+    //     $data_gallery[]=array('serial_number'=>$serial_number,'gallery_hotel'=>$gallery_hotel);
+    // }
 
     //DATA FASILITAS
-    $query_fasilitas=
-       "SELECT facility_hotel.id, facility_hotel.name 
-        FROM facility_hotel 
-        left join detail_facility_hotel on detail_facility_hotel.id_facility = facility_hotel.id 
-        left join hotel on hotel.id = detail_facility_hotel.id_hotel where hotel.id = '".$cari."' ";
+    // $query_fasilitas=
+    //    "SELECT facility_hotel.id, facility_hotel.name 
+    //     FROM facility_hotel 
+    //     left join detail_facility_hotel on detail_facility_hotel.id_facility = facility_hotel.id 
+    //     left join hotel on hotel.id = detail_facility_hotel.id_hotel where hotel.id = '".$cari."' ";
 
-    $hasil3=mysqli_query($conn, $query_fasilitas);
-    while($baris = mysqli_fetch_array($hasil3)){
-        $id=$baris['id'];
-        $name=$baris['name'];
-        $data_fasilitas[]=array('id'=>$id,'name'=>$name);
-    }
+    // $hasil3=mysqli_query($conn, $query_fasilitas);
+    // while($baris = mysqli_fetch_array($hasil3)){
+    //     $id=$baris['id'];
+    //     $name=$baris['name'];
+    //     $data_fasilitas[]=array('id'=>$id,'name'=>$name);
+    // }
 
     //DATA KAMAR
     // $query_kamar="SELECT room.id, room.name, room.price FROM room left join detail_room on detail_room.id_room = room.id left join hotel on hotel.id = detail_room.id_hotel where hotel.id = '".$cari."' ";  QUERY LAMA
@@ -71,6 +71,7 @@ $cari = $_GET["cari"];	//ID
     // }
 
     //OUTPUT
-    $arr=array("data"=>$dataarray, "gallery"=>$data_gallery, "fasilitas"=>$data_fasilitas);
+    // $arr=array("data"=>$dataarray, "gallery"=>$data_gallery, "fasilitas"=>$data_fasilitas);
+    $arr=array("data"=>$dataarray);
     echo json_encode($arr);
 ?>
