@@ -11,7 +11,7 @@
           from worship_place_type join detail_worship_type on worship_place_type.id_type=detail_worship_type.id_type
           join worship_place on detail_worship_type.id=worship_place.id
           join worship_place_gallery on worship_place.id=worship_place_gallery.id, city
-          where city.id='$city' AND st_contains(city.geom, worship_place.geom) and worship_place_type.name ='Historical Mosque' group by worship_place.name";
+          where city.id='$city' AND st_contains(city.geom, worship_place.geom) and worship_place_type.name ='Historical Mosque' group by worship_place.name order by status ASC";
 
           $hasil=mysqli_query($conn, $querysearch);
           while($row = mysqli_fetch_array($hasil))
@@ -40,7 +40,7 @@
           from worship_place_type join detail_worship_type on worship_place_type.id_type=detail_worship_type.id_type
           join worship_place on detail_worship_type.id=worship_place.id
           join worship_place_gallery on worship_place.id=worship_place_gallery.id, city
-          where city.id='$city' AND st_contains(city.geom, worship_place.geom) and worship_place_type.name ='Mosques Around Tours' group by worship_place.name"; 
+          where city.id='$city' AND st_contains(city.geom, worship_place.geom) and worship_place_type.name ='Mosques Around Tours' group by worship_place.name order by status ASC"; 
 
             $hasil=mysqli_query($conn, $querysearch);
             while($row = mysqli_fetch_array($hasil))
@@ -69,7 +69,7 @@
           from worship_place_type join detail_worship_type on worship_place_type.id_type=detail_worship_type.id_type
           join worship_place on detail_worship_type.id=worship_place.id
           join worship_place_gallery on worship_place.id=worship_place_gallery.id, city
-          where city.id='$city' AND st_contains(city.geom, worship_place.geom) and worship_place_type.name ='Tourist Mosque' group by worship_place.name"; 
+          where city.id='$city' AND st_contains(city.geom, worship_place.geom) and worship_place_type.name ='Tourist Mosque' group by worship_place.name order by status ASC"; 
 
             $hasil=mysqli_query($conn, $querysearch);
             while($row = mysqli_fetch_array($hasil))
@@ -98,7 +98,7 @@
           from worship_place_type join detail_worship_type on worship_place_type.id_type=detail_worship_type.id_type
           join worship_place on detail_worship_type.id=worship_place.id
           join worship_place_gallery on worship_place.id=worship_place_gallery.id, city
-          where city.id='$city' AND st_contains(city.geom, worship_place.geom) and worship_place_type.name ='Great Mosque' group by worship_place.name";
+          where city.id='$city' AND st_contains(city.geom, worship_place.geom) and worship_place_type.name ='Great Mosque' group by worship_place.name order by status ASC";
 
             $hasil=mysqli_query($conn, $querysearch);
             while($row = mysqli_fetch_array($hasil))
