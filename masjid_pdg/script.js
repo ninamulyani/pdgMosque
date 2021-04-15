@@ -306,7 +306,7 @@ function digitCity() // PENAMPILAN PEMBAGIAN KECAMATAN DI PADANG WEB
             fillColor:'#00b300',
             strokeWeight:0.5,
             strokeColor:'#ffffff',
-            fillOpacity: 0.5,
+            fillOpacity: 0.3,
             clickable: false
           }); 
         }
@@ -315,7 +315,7 @@ function digitCity() // PENAMPILAN PEMBAGIAN KECAMATAN DI PADANG WEB
             fillColor:'#FF0000',
             strokeWeight:0.5,
             strokeColor:'#ffffff',
-            fillOpacity: 0.3,
+            fillOpacity: 0.2,
             clickable: false
           });
         }
@@ -3029,7 +3029,7 @@ function aktifkanRadiusSekitar(){
           map.setCenter(centerBaru);
 			    klikInfoWindow_oleh(id_oleh_oleh);
           map.setZoom(14);
-			    $('#hasilcari_souvenir').append("<tr><td>"+nama+"</td><td><center><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_souvenir(\""+id_oleh_oleh+"\")'></a>&nbsp<a role='button' class='btn btn-success fa fa-car' style='color: white;' title='Local Transportation' onclick='angkotsouvenir(\""+id_oleh_oleh+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' style='color: white; padding-left: 15px; padding-right: 15px;' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\");rutetampil();resetangkot();'></a></center></td></tr>");
+			    $('#hasilcari_souvenir').append("<tr><td>"+nama+"</td><td><center><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_souvenir(\""+id_oleh_oleh+"\")'></a>&nbsp<a role='button' class='btn btn-danger fa fa-car' style='color: white;' title='Local Transportation' onclick='angkotsouvenir(\""+id_oleh_oleh+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' style='color: white; padding-left: 15px; padding-right: 15px;' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\");rutetampil();resetangkot();'></a></center></td></tr>");
             }//end for
           }});//end ajax
         }
@@ -3069,7 +3069,7 @@ function aktifkanRadiusSekitar(){
               map.setCenter(centerBaru);
 			        klikInfoWindow_kuliner(id);
               map.setZoom(14);
-              $('#hasilcari_kuliner').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_kuliner(\""+id+"\")'></a>&nbsp<a role='button' class='btn btn-success fa fa-car' title='Local Transportation' onclick='angkotkuliner(\""+id+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' value='Route' style='color: white; padding-left: 15px; padding-right: 15px;' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\");rutetampil();resetangkot();'></a></td></tr>");
+              $('#hasilcari_kuliner').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_kuliner(\""+id+"\")'></a>&nbsp<a role='button' class='btn btn-danger fa fa-car' title='Local Transportation' onclick='angkotkuliner(\""+id+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' value='Route' style='color: white; padding-left: 15px; padding-right: 15px;' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\");rutetampil();resetangkot();'></a></td></tr>");
             }
           }});
         }
@@ -3110,7 +3110,7 @@ function aktifkanRadiusSekitar(){
               map.setCenter(centerBaru);
 			        klikInfoWindow_hotel(id_hotel);
               map.setZoom(14);
-			        $('#hasilcari_hotel').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_hotel(\""+id_hotel+"\")'></a>&nbsp<a role='button' class='btn btn-success fa fa-car' style='color: white;' title='Local Transportation' onclick='angkothotel(\""+id_hotel+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' style='color: white; padding-left: 15px; padding-right: 15px;' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\"); rutetampil();resetangkot();'></a></td></tr>");
+			        $('#hasilcari_hotel').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_hotel(\""+id_hotel+"\")'></a>&nbsp<a role='button' class='btn btn-danger fa fa-car' style='color: white;' title='Local Transportation' onclick='angkothotel(\""+id_hotel+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' style='color: white; padding-left: 15px; padding-right: 15px;' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\"); rutetampil();resetangkot();'></a></td></tr>");
             }//end for
           }});//end ajax
         }
@@ -3152,7 +3152,7 @@ function aktifkanRadiusSekitar(){
               map.setCenter(centerBaru);
 			        klikInfoWindow_industri(id_industri);
               map.setZoom(14);
-			        $('#hasilcariaround').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info padding-left: 17px; padding-right: 17px;' onclick='detailik(\""+id_industri+"\");info1();'></a>&nbsp<a role='button' class='btn btn-success fa fa-car' title='Local Transportation' onclick='angkotindustri(\""+id_industri+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\")'></a></td></tr>");
+			        $('#hasilcariaround').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info padding-left: 17px; padding-right: 17px;' onclick='detailik(\""+id_industri+"\");info1();'></a>&nbsp<a role='button' class='btn btn-danger fa fa-car' title='Local Transportation' onclick='angkotindustri(\""+id_industri+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\")'></a></td></tr>");
             }//end for
           }});//end ajax
         }
@@ -3194,7 +3194,7 @@ function aktifkanRadiusSekitar(){
               map.setCenter(centerBaru);
 			        klikInfoWindow_ow(id);
               map.setZoom(14);
-			        $('#hasilcari_tourism').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_tourism(\""+id+"\")'></a>&nbsp<a role='button' class='btn btn-success fa fa-car' style='color: white;' title='Local Transportation' onclick='angkotwisata(\""+id+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' style='color: white; padding-left: 15px; padding-right: 15px;' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\");rutetampil();resetangkot();'></a></td></tr>");
+			        $('#hasilcari_tourism').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_tourism(\""+id+"\")'></a>&nbsp<a role='button' class='btn btn-danger fa fa-car' style='color: white;' title='Local Transportation' onclick='angkotwisata(\""+id+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' style='color: white; padding-left: 15px; padding-right: 15px;' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\");rutetampil();resetangkot();'></a></td></tr>");
             }//end for
           }});//end ajax
         }
@@ -3229,7 +3229,7 @@ function aktifkanRadiusSekitar(){
               map.setCenter(centerBaru);
 			        klikInfoWindow_res(id);
               map.setZoom(14);
-              $('#hasilcari_worship').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_masjid(\""+id+"\")'></a>&nbsp<a role='button' class='btn btn-success fa fa-car' style='color: white;' title='Local Transportation' onclick='angkotmesjid(\""+id+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' style='color: white; padding-left: 15px; padding-right: 15px;' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\")'></a></td></tr>");
+              $('#hasilcari_worship').append("<tr><td>"+nama+"</td><td class='centered'><a role='button' title='info' class='btn btn-success fa fa-info' style='color: white; padding-left: 17px; padding-right: 17px;' onclick='modal_masjid(\""+id+"\")'></a>&nbsp<a role='button' class='btn btn-danger fa fa-car' style='color: white;' title='Local Transportation' onclick='angkotmesjid(\""+id+"\",\""+lat+"\",\""+lon+"\");info12();'></a>&nbsp<a role='button' style='color: white; padding-left: 15px; padding-right: 15px' class='btn btn-success fa fa-map-marker' title='Position' onclick='set_center(\""+lat+"\",\""+lon+"\",\""+nama+"\")'></a>&nbsp<a role='button' title='Route from mosque' class='btn btn-success fa fa-male' style='color: white; padding-left: 15px; padding-right: 15px;' value='Route' onclick='route_sekitar(\""+latitude+"\",\""+longitude+"\",\""+lat+"\",\""+lon+"\")'></a></td></tr>");
             }//end for
           }});//end ajax
         }
@@ -4422,7 +4422,10 @@ function legenda()
         content.push('<h4>Legend</h4>');
         content.push('<p><div class="color c"></div> Padang City</p>');
         content.push('<p><div class="color a"></div> Bukittinggi City</p>');
-        // content.push('<p><div class="color b"></div>District Pauh</p>');
+        //content.push('<h4>More Info</h4>');
+        content.push('<p><div><a class="btn btn-success btn-xs fa fa-info"></a> Detail Information Worship/Object</div></p>');
+        content.push('<p><div><a class="btn btn-danger btn-xs fa fa-taxi"></a> Angkot Around Worship/Object</div></p>');
+        
         // content.push('<p><div class="color d"></div>District Lubuk Begalung</p>');
 		    // content.push('<p><div class="color e"></div>District Padang Timur</p>');
         // content.push('<p><div class="color f"></div>District Kuranji</p>');
