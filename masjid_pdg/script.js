@@ -390,10 +390,10 @@ function digitCity() // PENAMPILAN PEMBAGIAN KECAMATAN DI PADANG WEB
         radius: parseFloat(inputradiusmes*100),
         map: map,
         strokeColor: "red",
-        strokeOpacity: 0.8,
+        strokeOpacity: 0.6,
         strokeWeight: 2,
         fillColor: "red",
-        fillOpacity: 0.35
+        fillOpacity: 0.2
       });
         map.setZoom(10);
         map.setCenter(pos);
@@ -417,10 +417,10 @@ function digitCity() // PENAMPILAN PEMBAGIAN KECAMATAN DI PADANG WEB
       radius: parseFloat(inputradiusangkot*100),
       map: map,
       strokeColor: "red",
-      strokeOpacity: 0.8,
+      strokeOpacity: 0.6,
       strokeWeight: 2,
       fillColor: "red",
-      fillOpacity: 0.35
+      fillOpacity: 0.2
       });
       map.setZoom(14);
       map.setCenter(pos);
@@ -2969,10 +2969,10 @@ function aktifkanRadiusSekitar(){
             radius: rad,
             map: map,
             strokeColor: "red",
-            strokeOpacity: 0.8,
+            strokeOpacity: 0.6,
             strokeWeight: 1,
             fillColor: "red",
-            fillOpacity: 0.35
+            fillOpacity: 0.2
           });
           circles.push(circle);
           console.log("aada");
