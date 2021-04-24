@@ -38,9 +38,8 @@
             </thead>
             <tbody id="table_type">
               <?php                    
-                $sql = mysqli_query($conn, "select worship_place.id, worship_place.name as worship, worship_place_type.name as type, detail_worship_type.id_type, detail_worship_type.status from worship_place join detail_worship_type 
-                on worship_place.id=detail_worship_type.id join worship_place_type 
-                on detail_worship_type.id_type=worship_place_type.id_type
+                $sql = mysqli_query($conn, "select worship_place.id, worship_place.name as worship, worship_place_type.name as type, detail_worship_type.id_type, detail_worship_type.status from worship_place join detail_worship_type on worship_place.id=detail_worship_type.id join worship_place_type on detail_worship_type.id_type=worship_place_type.id_type, city
+                where city.id='$city' AND st_contains(city.geom, worship_place.geom) 
                 order by worship_place.id ASC");
                 while($data =  mysqli_fetch_array($sql))
                 {

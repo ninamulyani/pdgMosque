@@ -18,10 +18,10 @@
                     <tbody>
 
                       <?php
-                        $sql = mysqli_query($conn,"SELECT * FROM worship_place");
+                        $sql = mysqli_query($conn,"SELECT worship_place.id as id_worship, worship_place.name as name_worship, worship_place.address FROM worship_place, city where city.id='$city' AND st_contains(city.geom, worship_place.geom)");
                         while($data =  mysqli_fetch_array($sql)){
-                        $id = $data['id'];
-                        $nama = $data['name'];
+                        $id = $data['id_worship'];
+                        $nama = $data['name_worship'];
                         $alamat = $data['address'];
                       ?>
                         <tr>
