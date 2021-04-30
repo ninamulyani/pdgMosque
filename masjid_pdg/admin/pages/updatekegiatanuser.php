@@ -25,7 +25,7 @@
                             $jenis=mysqli_query($conn,"select * from event ");
                               while($rowkeg = mysqli_fetch_assoc($jenis))
                               {
-                                if ($data[id_event]==$rowkeg[id]){
+                                if ($data['id_event']==$rowkeg['id']){
                                     echo "<option value=\"$rowkeg[id]\" selected>$rowkeg[name]</option>";}
                                 else{
                                     echo"<option value=\"$rowkeg[id]\">$rowkeg[name]</option>";}
@@ -45,7 +45,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label" for="tgl_keg"><span style="color:red"></span>Date</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control form-control-inline input-medium default-date-picker" size="16" name="tgl_keg" value="<?php echo $data['date']?>">
+                          <input type="text" class="form-control form-control-inline input-medium default-date-picker" size="16" name="tgl_keg" value="<?php $timestamp = strtotime($data['date']); echo date('m-d-Y', $timestamp); ?>">
                       </div>
                   </div>
                   <div class="form-group">
@@ -53,10 +53,10 @@
                       <div class="col-sm-10">
                         <select  name="id_ustad" id="id_ustad" class="form-control">
                           <?php
-                            $ustad=mysqli_query($conn,"select * from ustad ");
+                            $ustad=mysqli_query($conn,"select * from ustad");
                             while($rowust = mysqli_fetch_assoc($ustad))
                             {
-                              if ($data[id_ustad]==$rowust[id]){
+                              if ($data['id_ustad']==$rowust['id']){
                                 echo"<option value=\"$rowust[id]\" selected>$rowust[name]</option>";
                               }
                                 echo"<option value=\"$rowust[id]\">$rowust[name]</option>";

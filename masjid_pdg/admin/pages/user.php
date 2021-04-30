@@ -49,10 +49,10 @@
 		  <option value='0'>None</option>
              <?php
 
-              $mesjid=mysqli_query($conn,"select * from worship_place ");
+              $mesjid=mysqli_query($conn,"SELECT worship_place.id as id_mesjid, worship_place.name as nama_mesjid FROM worship_place, city where city.id='$city' AND st_contains(city.geom, worship_place.geom)");
               while($mes = mysqli_fetch_assoc($mesjid))
               {
-              echo"<option value=".$mes['id'].">".$mes['name']."</option>";
+              echo"<option value=".$mes['id_mesjid'].">".$mes['nama_mesjid']."</option>";
               }
               ?>
 

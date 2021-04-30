@@ -19,10 +19,10 @@
                         <select name="nama" id="nama" class="form-control">
                             <option value=" "> --- Select Mosque Name --- 
                             <?php
-                                $nama=mysqli_query($conn,"SELECT worship_place.id, worship_place.name FROM worship_place, city where city.id='$city' AND st_contains(city.geom, worship_place.geom)");
+                                $nama=mysqli_query($conn,"SELECT worship_place.id as id_mesjid, worship_place.name as nama_mesjid FROM worship_place, city where city.id='$city' AND st_contains(city.geom, worship_place.geom)");
                                     while($rownama = mysqli_fetch_assoc($nama))
                                     {
-                                    echo"<option value=".$rownama['id'].">".$rownama['name']."</option>";
+                                    echo"<option value=".$rownama['id_mesjid'].">".$rownama['nama_mesjid']."</option>";
                                     }
                             ?>
                         </select>

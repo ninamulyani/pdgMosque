@@ -14,6 +14,7 @@
                         <th>Date</th>
 						            <th>Ustad</th>
 						            <th>Description</th>
+                        <th>Status</th>
                         <th>Action</th>
                   </tr>
                     </thead>
@@ -28,6 +29,7 @@
                         $tgl_keg = $data['date'];
                         $nama_ustad = $data['ustad_name'];
                         $materi = $data['description'];
+                        $scale = $data['status'];
                         ?>
                         <tr>
                         <td><?php echo "$nama_keg"; ?></td>
@@ -35,6 +37,14 @@
                         <td><?php echo "$tgl_keg"; ?></td>
                         <td><?php echo "$nama_ustad"; ?></td>
                         <td><?php echo "$materi"; ?></td>
+                        <?php if ($scale=='1'){
+                          $status = "Recommendation";
+                        } elseif ($scale=='0'){
+                          $status = "Not Recommendation";
+                        } 
+                        ?>
+                        <td><?php echo "$status"; ?></td>
+                    
                         <td><div class="btn-group">
                         <a href="?page=updatekegiatanuser&id=<?php echo $id; ?>&jam=<?php echo $jam; ?>&date=<?php echo $tgl_keg; ?>" class="btn btn-sm btn-default" title='Update' style="color: white;"><i class="fa fa-edit"></i> Update</a>
                         </div>

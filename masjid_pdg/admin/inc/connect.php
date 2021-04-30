@@ -4,7 +4,8 @@
 	$user = "root";
 	$pass = "199801";
 	$port = "3306";
-	$dbname = "halal_tourism";
+	// $dbname = "halal_tourism";
+	$dbname = "hosting";
 
 	$conn = mysqli_connect("$host","$user","$pass","$dbname");
 	// Check connection
